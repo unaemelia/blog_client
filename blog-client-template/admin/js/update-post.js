@@ -3,6 +3,8 @@ window.onload = function () {
     updatePost();
 }
 
+//read better on how this code works + rewatch tutorials
+
 async function prefillForm() {
     let queryString = window.location.search;
     //console.log(queryString);
@@ -51,6 +53,8 @@ function updatePost() {
     })
 }
 
+//better to use the second solution?
+//google to understand better + rewatch tutorial
 function postFormToJSON(form) {
     let obj = {};
     let formData = new FormData(form);

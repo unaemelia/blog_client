@@ -11,7 +11,6 @@ async function fetchAllPosts() {
         for (let post of posts) {
             let date = new Date(post.date);
 
-            //fix so the line breaks after each post
             postsHTML += `
                 <h3>${post.title}</h3>
                 <p>${post.author}</p>

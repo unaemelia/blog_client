@@ -11,15 +11,16 @@ async function fetchAllPosts() {
         for (let post of posts) {
             let date = new Date(post.date);
 
-            //fix so the line breaks after each post
             postsHTML += `
+            <tr>
                 <td>${post.title}</td>
                 <td>${post.author}</td>
-                <td>${formatDate(date)}</td>
+                <td><i>${formatDate(date)}</i></td>
                 <td>
                     <a href="./update-post.html?id=${post['_id']}">Update</a>
                     <a href="#" class="delete-post" data-id="${post['_id']}">Delete</a>
                 </td>
+            <tr>
             `;
         }
         document.getElementById('display-posts').innerHTML = postsHTML;
@@ -29,12 +30,14 @@ async function fetchAllPosts() {
     deleteBlogPosts();
 }
 
+//needs a fix: minutes are not showing correctly
 function formatDate(date) {
     return `${date.getFullYear()}-${date.getMonth()}-${date.getDate()} ${date.getHours()}:${date.getMinutes()}`;
 }
 
 //fix the display when the blog post is deleted
-//the error probably lies in the "parentNode.."
+//the error probably lies in the "parentNode"
+//seems to be working now - check lecture video tomorrow where he explains traversing
 function deleteBlogPosts() {
     let deletePosts = document.getElementsByClassName('delete-post');
 

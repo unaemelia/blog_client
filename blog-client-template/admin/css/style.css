@@ -1,4 +1,126 @@
 body {
-    height: 100%;
-    width: 100%;
+    font-family: sans-serif;
+    background-color: lightgrey;
+}
+
+#admin-container {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+}
+
+#nav-bar-admin {
+    text-align: right;
+    font-size: 20px;
+    padding: 20px;
+}
+
+#blog-management {
+    text-align: left;
+    font-size: 20px;
+}
+
+#table-container {
+    padding-top: 20px;
+}
+
+#table-container th {
+    padding: 12px;
+    text-align: left;
+    background-color: grey;
+    color: white;
+    font-size: 20px;
+}
+
+#table-container td {
+    font-size: 18px;
+    padding: 8px;
+}
+
+#table-container th, td {
+    border: 1px solid black;
+}
+
+#table-container a {
+    padding: 3px;
+}
+
+/* Create Posts Page */
+#create-new-post {
+    padding: 30px;
+}
+
+#create-new-post input, textarea {
+    width: 40%;
+    padding: 12px, 25px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size: 16px;
+}
+
+#create-new-post textarea {
+    height: 150px;
+    resize: none;
+}
+
+#create-new-post button {
+    background-color: rgb(73, 73, 73);
+    color: white;
+    margin: 10px;
+    padding: 6px, 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+#create-new-post button:hover {
+    background-color: rgb(97, 97, 97);
+}
+
+#create-new-post a {
+    margin: 12px;
+    font-size: 16px;
+}
+
+/* Update Post */
+#update-post {
+    padding: 30px;
+}
+
+#update-post input, textarea {
+    width: 40%;
+    padding: 12px, 25px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size: 16px;
+}
+
+#update-post textarea {
+    height: 150px;
+    resize: none;
+}
+
+#update-post button {
+    background-color: rgb(73, 73, 73);
+    color: white;
+    margin: 10px;
+    padding: 6px, 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+#update-post button:hover {
+    background-color: rgb(97, 97, 97);
+}
+
+#update-post a {
+    margin: 12px;
+    font-size: 16px;
 }
