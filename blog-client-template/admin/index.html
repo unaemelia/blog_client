@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="./css/style.css">
 </head>
 
 <body>
@@ -14,27 +14,29 @@
         </nav>
         <div id="blog-management">
             <a href="./create-post.html">Create Post</a>
-            <table id="">
-                <tr>
-                    <th>Title</th>
-                    <th>Author</th>
-                    <th>Date</th>
-                    <th>Action</th>
-                </tr>
-                <tr>
-                    <td>Blog Title</td>
-                    <td>Blog Author</td>
-                    <td>3.9.2000</td>
-                    <td>
-                        <a href="./update-post.html">Update</a>
-                        <a href="">Delete</a>
-                    </td>
-                </tr>
-            </table>
+            <div id="table-container">
+                <table>
+                    <tr>
+                        <th>Title</th>
+                        <th>Author</th>
+                        <th>Date</th>
+                        <th>Action</th>
+                    </tr>
+                    <tr id="display-posts">
+                        <!-- <td>Blog Title</td>
+                        <td>Blog Author</td>
+                        <td>3.9.2000</td>
+                        <td>
+                            <a href="./update-post.html">Update</a>
+                            <a href="">Delete</a>
+                        </td> -->
+                    </tr>
+                </table>
+            </div>
         </div>
 
     </div>
-    <script src="js/manage-posts.js"></script>
+    <script src="./js/manage-posts.js"></script>
 </body>
 
 </html>
