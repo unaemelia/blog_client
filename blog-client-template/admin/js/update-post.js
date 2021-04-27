@@ -1,42 +1,44 @@
 window.onload = function () {
-    prefillForm();
-    updatePost();
+    fetchPost();
+    submitNewPost();
 }
 
-//read better on how this code works + rewatch tutorials
-
-async function prefillForm() {
+async function fetchPost() {
     let queryString = window.location.search;
-    //console.log(queryString);
-    let urlParams = new URLSearchParams(window.location.search);
+    let urlParams = new URLSearchParams(queryString);
     let postId = urlParams.get('id');
-    //console.log(postId);
+
+    const updateTitle = document.getElementById('update-title');
+    const updateAuthor = document.getElementById('update-author');
+    const updateContent = document.getElementById('update-content');
 
     try {
-        const response = await fetch('http://localhost:5000/posts/' + postId);
-        const post = await response.json();
+        const res = await fetch('http://localhost:5000/posts/' + postId);
+        const post = await res.json();
         console.log(post);
 
-        //only content shows up, need to add title and author
-        //when I try to update title and author come as null
-        document.getElementById('update-title').innerHTML = post.title;
-        document.getElementById('update-author').innerHTML = post.author;
-        document.getElementById('update-content').innerHTML = post.content;
+        //prefill form
+        updateTitle.value = post.title;
+        updateAuthor.value = post.author;
+        updateContent.value = post.content;
+
     } catch (error) {
         console.log(error);
     }
 }
 
-function updatePost() {
+function submitNewPost() {
     let postForm = document.getElementById('update-post');
-
-    let urlParams = new URLSearchParams(window.location.search);
+    let queryString = window.location.search;
+    let urlParams = new URLSearchParams(queryString);
     let postId = urlParams.get('id');
+
+    const updateTitle = document.getElementById('update-title');
+    const updateAuthor = document.getElementById('update-author');
+    const updateContent = document.getElementById('update-content');
 
     postForm.addEventListener('submit', async function (e) {
         e.preventDefault();
-
-        console.log(postFormToJSON(e.target));
 
         try {
             await fetch('http://localhost:5000/posts/' + postId, {
@@ -44,33 +46,16 @@ function updatePost() {
                 headers: {
                     'Content-Type': 'application/json'
                 },
-                body: postFormToJSON(e.target)
+                body: JSON.stringify({
+                    title: updateTitle.value,
+                    author: updateAuthor.value,
+                    content: updateContent.value
+                })
             });
+
             window.location.replace('./index.html');
         } catch (error) {
             console.log(error);
         }
     })
-}
-
-//better to use the second solution?
-//google to understand better + rewatch tutorial
-function postFormToJSON(form) {
-    let obj = {};
-    let formData = new FormData(form);
-
-    for (let key of formData.keys()) {
-        //console.log(key);
-        let inputData = formData.getAll(key);
-        //console.log(inputData);
-
-        if (inputData.length > 1) {
-            obj[key] = inputData;
-        } else {
-            obj[key] = inputData[0];
-        }
-    }
-
-    // console.log(obj);
-    return JSON.stringify(obj);
 }

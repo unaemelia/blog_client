@@ -12,8 +12,8 @@ async function fetchAllPosts() {
             let date = new Date(post.date);
 
             postsHTML += `
-                <h3>${post.title}</h3>
-                <p>${post.author}</p>
+                <h2>${post.title}</h2>
+                <h4>${post.author}</h4>
                 <i>${formatDate(date)}</i>
                 <p>${post.content}</p>
             `;

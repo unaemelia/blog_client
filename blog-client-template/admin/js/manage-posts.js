@@ -30,14 +30,10 @@ async function fetchAllPosts() {
     deleteBlogPosts();
 }
 
-//needs a fix: minutes are not showing correctly
 function formatDate(date) {
     return `${date.getFullYear()}-${date.getMonth()}-${date.getDate()} ${date.getHours()}:${date.getMinutes()}`;
 }
 
-//fix the display when the blog post is deleted
-//the error probably lies in the "parentNode"
-//seems to be working now - check lecture video tomorrow where he explains traversing
 function deleteBlogPosts() {
     let deletePosts = document.getElementsByClassName('delete-post');
 
